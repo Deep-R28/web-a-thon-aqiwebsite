@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global AQI Detection Portal</title>
+    <link rel="stylesheet" href="stylep.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Global Air Quality Index (AQI) Portal</h1>
+        <p>Discover real-time air quality levels worldwide!</p>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <select id="countrySelect" class="dropdown" onchange="fetchCities()">
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+        </select>
+        <select id="citySelect" class="dropdown">
+            <option value="Salem">Salem</option>
+            <option value="Vellore">Vellore</option>
+        </select>
+        <button onclick="getWeatherAndAQIData()">Get Weather & AQI</button>
+    </div>
+
+    <!-- AQI Display Section -->
+    <div class="aqi-display" id="aqiDisplay">
+        <h2>AQI Level: <span id="aqiLevel">-</span></h2>
+        <p id="aqiStatus">Select a country and city to get the current AQI.</p>
+        <p id="weatherInfo">Weather Info: </p>
+        <p id="additionalInfo"></p>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-container">
+            <h3>AQI Comparison of Top Cities</h3>
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>AQI Radar for Selected City</h3>
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Interactive AQI Map Section -->
+    <div class="map-section">
+        <h3>Interactive AQI Map</h3>
+        <div id="map" style="height: 500px;"></div>
+    </div>
+
+    <script src="scriptp.js"></script>
+</body>
+</html>
